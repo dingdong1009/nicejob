@@ -19,7 +19,7 @@ Building a job preparation SaaS app with 3 core features: CV-Job Match Analysis,
 - [x] Configure Supabase project (database, auth, storage)
 - [x] Set up OpenAI API account and obtain keys
 - [x] Create Stripe test account for payment integration
-- [ ] Configure Vercel deployment pipeline
+- [x] Configure Vercel deployment pipeline
 - [x] Set up local development database connection
 - [x] Install and configure required dependencies
 
