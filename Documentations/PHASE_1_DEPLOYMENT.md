@@ -92,7 +92,7 @@ NODE_ENV=production
 
 1. Click **"Deploy"**
 2. Wait for the build to complete
-3. Your app will be available at `https://your-app-name.vercel.app`
+3. Your app will be available at `https://nicejob.vercel.app`
 
 ## Step 4: Set Up Production Webhooks
 
@@ -100,7 +100,7 @@ NODE_ENV=production
 
 1. Go to Stripe Dashboard > Developers > Webhooks
 2. Click **"Add endpoint"**
-3. Enter your production URL: `https://your-app-name.vercel.app/api/webhooks/stripe`
+3. Enter your production URL: `https://nicejob.app/api/webhooks/stripe`
 4. Select the same events as development:
    - `customer.created`, `customer.updated`, `customer.deleted`
    - `customer.subscription.created`, `customer.subscription.updated`, `customer.subscription.deleted`
