@@ -1,48 +1,43 @@
-import { createBrowserClient, createServerClient } from '@supabase/ssr'
-import { cookies } from 'next/headers'
+import { createBrowserClient } from '@supabase/ssr'
 
 // Browser client for client-side operations
 export const createClient = () => {
-  return createBrowserClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-  )
-}
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
-// Server client for server-side operations
-export const createServerSupabaseClient = async () => {
-  const cookieStore = await cookies()
-
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        get(name: string) {
-          return cookieStore.get(name)?.value
-        },
+  if (!supabaseUrl || !supabaseAnonKey) {
+    console.warn('Supabase environment variables are missing. Some features may not work properly.')
+    // Return a mock client that won't break the app
+    return {
+      auth: {
+        getSession: () => Promise.resolve({ data: { session: null }, error: null }),
+        onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } } as any),
+        signUp: () => Promise.resolve({ error: new Error('Supabase not configured') }),
+        signInWithPassword: () => Promise.resolve({ error: new Error('Supabase not configured') }),
+        signOut: () => Promise.resolve({ error: new Error('Supabase not configured') }),
+        resetPasswordForEmail: () => Promise.resolve({ error: new Error('Supabase not configured') })
       },
+      from: () => ({
+        select: () => ({
+          eq: () => ({
+            single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') })
+          })
+        }),
+        insert: () => ({
+          select: () => ({
+            single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') })
+          })
+        }),
+        update: () => ({
+          eq: () => ({
+            select: () => ({
+              single: () => Promise.resolve({ data: null, error: new Error('Supabase not configured') })
+            })
+          })
+        })
+      }) as any
     }
-  )
-}
+  }
 
-// Admin client for server-side admin operations
-export const createAdminClient = () => {
-  return createServerClient(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.SUPABASE_SERVICE_ROLE_KEY!,
-    {
-      cookies: {
-        get() {
-          return undefined
-        },
-        set() {
-          // no-op
-        },
-        remove() {
-          // no-op
-        },
-      },
-    }
-  )
+  return createBrowserClient(supabaseUrl, supabaseAnonKey)
 } 
