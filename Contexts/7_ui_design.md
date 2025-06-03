@@ -1,5 +1,38 @@
 Based on this Supabase design, here's comprehensive UI design guidance for your Nicejob:This comprehensive guide translates Supabase's successful design language to your Nicejob. The key insights from their approach:
 
+## Font Import & Primary Typography
+
+**Platform Font - Roboto:**
+
+```html
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+</style>
+```
+
+**Roboto CSS Class System:**
+```css
+.roboto-<uniquifier> {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+```
+
+**Usage Examples:**
+```css
+.roboto-light { font-weight: 300; }
+.roboto-regular { font-weight: 400; }
+.roboto-medium { font-weight: 500; }
+.roboto-bold { font-weight: 700; }
+.roboto-black { font-weight: 900; }
+```
+
+---
+
 ## Why This Design Works for Job Seekers
 
 **Trust Building**: The clean, professional aesthetic immediately establishes credibility - crucial when users are making career decisions.
@@ -278,19 +311,29 @@ gap analysis and improvement recommendations."
 
 ### Font Stack
 ```css
-font-family: 'Inter', -apple-system, BlinkMacSystemFont, 
-             'Segoe UI', Roboto, sans-serif;
+font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 
+             'Segoe UI', sans-serif;
 ```
 
+**Primary Font:** Roboto (Google Fonts)
+- Import required at top of application
+- Use Roboto CSS classes for consistent weight application
+- Fallback to system fonts for performance
+
 ### Scale
-- **Heading 1:** 72px/48px (desktop/mobile), weight 700
-- **Heading 2:** 48px/36px, weight 600
-- **Heading 3:** 32px/28px, weight 600
-- **Heading 4:** 24px/20px, weight 600
-- **Body Large:** 20px, weight 400
-- **Body:** 16px, weight 400
-- **Body Small:** 14px, weight 400
-- **Caption:** 12px, weight 500
+- **Heading 1:** 72px/48px (desktop/mobile), weight 700 (.roboto-bold)
+- **Heading 2:** 48px/36px, weight 600 (.roboto-medium)
+- **Heading 3:** 32px/28px, weight 600 (.roboto-medium)
+- **Heading 4:** 24px/20px, weight 600 (.roboto-medium)
+- **Body Large:** 20px, weight 400 (.roboto-regular)
+- **Body:** 16px, weight 400 (.roboto-regular)
+- **Body Small:** 14px, weight 400 (.roboto-regular)
+- **Caption:** 12px, weight 500 (.roboto-medium)
+
+### Implementation Notes
+- Apply `.roboto-<weight>` classes to all text elements
+- Ensure consistent font loading across all pages
+- Use font-display: swap for performance optimization
 
 ---
 

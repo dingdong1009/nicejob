@@ -1,14 +1,15 @@
 'use client'
 
-import { useAuth } from '@/contexts/AuthContext'
-import { useRouter } from 'next/navigation'
-import { useEffect } from 'react'
 import { 
   DocumentTextIcon, 
   BriefcaseIcon, 
   ChartBarIcon,
   UserCircleIcon
 } from '@heroicons/react/24/outline'
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
+
+import { useAuth } from '@/contexts/AuthContext'
 
 export default function DashboardPage() {
   const { user, profile, loading } = useAuth()

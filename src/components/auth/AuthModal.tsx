@@ -1,14 +1,15 @@
 'use client'
 
-import { useState } from 'react'
 import { Dialog, DialogPanel, DialogTitle, Transition } from '@headlessui/react'
 import { XMarkIcon, EnvelopeIcon, LockClosedIcon, UserIcon } from '@heroicons/react/24/outline'
-import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useState } from 'react'
+import { useForm } from 'react-hook-form'
 import { z } from 'zod'
-import { useAuth } from '@/contexts/AuthContext'
+
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
+import { useAuth } from '@/contexts/AuthContext'
 
 const signUpSchema = z.object({
   fullName: z.string().min(2, 'Full name must be at least 2 characters'),

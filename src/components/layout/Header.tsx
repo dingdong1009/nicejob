@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-import Link from 'next/link'
 import { Menu, MenuButton, MenuItem, MenuItems, Transition } from '@headlessui/react'
 import { 
   Bars3Icon, 
@@ -13,9 +11,12 @@ import {
   ChartBarIcon,
   BriefcaseIcon
 } from '@heroicons/react/24/outline'
-import { useAuth } from '@/contexts/AuthContext'
+import Link from 'next/link'
+import { useState } from 'react'
+
 import { AuthModal } from '@/components/auth/AuthModal'
 import { Button } from '@/components/ui/Button'
+import { useAuth } from '@/contexts/AuthContext'
 
 export function Header() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
@@ -46,7 +47,7 @@ export function Header() {
             {/* Logo */}
             <div className="flex items-center">
               <Link href="/" className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
                   <span className="text-white font-bold text-lg">N</span>
                 </div>
                 <span className="text-xl font-bold text-gray-900">NiceJob</span>

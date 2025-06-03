@@ -1,7 +1,5 @@
 'use client'
 
-import { useState } from 'react'
-
 import { 
   DocumentMagnifyingGlassIcon,
   ChatBubbleLeftRightIcon,
@@ -12,10 +10,11 @@ import {
   UserGroupIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline'
+import { useState } from 'react'
 
-import { useAuth } from '@/contexts/AuthContext'
 import { AuthModal } from '@/components/auth/AuthModal'
 import { Button } from '@/components/ui/Button'
+import { useAuth } from '@/contexts/AuthContext'
 
 export default function HomePage() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false)
@@ -89,20 +88,23 @@ export default function HomePage() {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-gradient-to-br from-green-50 to-emerald-50 min-h-screen">
       {/* Hero Section - Following Contexts/7_ui_design.md specifications */}
       <div className="relative isolate px-6 pt-14 lg:px-8">
         {/* Background decoration */}
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
-          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-green-400 to-emerald-400 opacity-20 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
+          <div className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-emerald-400 to-green-400 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" />
         </div>
         
         <div className="mx-auto max-w-4xl py-24 sm:py-32 lg:py-40">
           <div className="text-center">
             {/* Main headline following exact specifications */}
             <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl leading-tight" style={{ letterSpacing: '-0.02em' }}>
-              Perfect Your CV Match{' '}
-              <span className="text-green-600">Scale to any job</span>
+              Perfect<br />
+              Your<br />
+              CV<br />
+              Match{' '}
+              <span className="text-green-600">Scale<br />to<br />any<br />job</span>
             </h1>
             
             {/* Subheading */}
@@ -161,12 +163,12 @@ export default function HomePage() {
         
         {/* Background decoration bottom */}
         <div className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]">
-          <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-green-400 to-emerald-400 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" />
+          <div className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-emerald-400 to-green-400 opacity-20 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" />
         </div>
       </div>
 
       {/* Social Proof Section - Following Contexts/7_ui_design.md */}
-      <div className="bg-gray-50 py-12 sm:py-16">
+      <div className="bg-white/50 backdrop-blur-sm py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <p className="text-center text-sm font-medium text-gray-600 mb-8">
             Trusted by job seekers at fast-growing companies worldwide
@@ -184,7 +186,7 @@ export default function HomePage() {
       </div>
 
       {/* Core Features Section - Following Contexts/7_ui_design.md */}
-      <div className="py-24 sm:py-32">
+      <div className="py-24 sm:py-32 bg-white/30 backdrop-blur-sm">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-base font-semibold leading-7 text-green-600">Everything you need</h2>

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+
 import "./globals.css";
-import { AuthProvider } from "@/contexts/AuthContext";
 import { Header } from "@/components/layout/Header";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 export const metadata: Metadata = {
   title: "NiceJob - AI-Powered Job Preparation",
@@ -15,11 +16,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased bg-gray-50 font-sans">
+      <body className="antialiased bg-white text-foreground font-sans">
         <AuthProvider>
-          <div className="min-h-screen">
+          <div className="min-h-screen flex flex-col">
             <Header />
-            <main>
+            <main className="flex-1">
               {children}
             </main>
           </div>
